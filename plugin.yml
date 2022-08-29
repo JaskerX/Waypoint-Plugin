@@ -2,7 +2,7 @@ name: WaypointPlugin
 version: 1.0
 main: de.jaskerx.waypoints.main.Main
 api-version: 1.17
-author: JaskerX
+author: Jaske
 
 commands:
    wps:
