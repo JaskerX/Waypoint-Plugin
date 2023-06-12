@@ -1,0 +1,46 @@
+name: WaypointPlugin
+version: 1.0
+main: de.jaskerx.waypoints.WaypointPlugin
+load: POSTWORLD
+api-version: 1.19
+author: JaskerX
+website: https://github.com/JaskerX/Waypoint-Plugin
+permission-message: &noperms "§cDu bist nicht berechtigt, diesen Command auszuführen!"
+
+commands:
+   waypoints:
+      description: Öffnet das Waypoint-Menü
+      usage: /<command>
+      aliases:
+        - wps
+      permission: jaskerx.waypoints.waypoints
+      permission-message: *noperms
+   waypoint:
+      description: Verwalte Waypoints
+      usage: |
+             
+             /<command> [info/delete] [Name oder Id]
+             /<command> add [Name] [Sichtbarkeit] [Item]
+      aliases:
+        - wp
+      permission: jaskerx.waypoints.waypoint
+      permission-message: *noperms
+   tpa:
+      description: Stellen und Annehmen/Ablehnen einer Anfrage
+      usage: |
+             
+             /<command> [player]
+             /<command> [annehmen/ablehnen] [player]
+      permission: jaskerx.waypoints.tpa
+      permission-message: *noperms
+
+permissions:
+  jaskerx.waypoints.waypoints:
+    description: Waypoints-Menü öffnen
+    default: true
+  jaskerx.waypoints.waypoint:
+    description: Waypoints verwalten
+    default: true
+  jaskerx.waypoints.tpa:
+    description: Tpas stellen und annehmen
+    default: true
