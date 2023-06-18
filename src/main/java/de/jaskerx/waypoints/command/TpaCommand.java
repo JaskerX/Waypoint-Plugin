@@ -52,6 +52,7 @@ public class TpaCommand implements CommandExecutor, TabExecutor {
 			targetPlayer.spigot().sendMessage(textComponentAccept);
 			targetPlayer.spigot().sendMessage(textComponentDeny);
 			this.messenger.sendMessage(player, "Tpa wurde gesendet.");
+			return true;
 		}
 
 		// Anfrage annehmen/ablehnen
@@ -83,6 +84,7 @@ public class TpaCommand implements CommandExecutor, TabExecutor {
 			} else {
 				this.messenger.sendMessage(player, "Dieser Spieler hat keine Anfragen gestellt!");
 			}
+			return true;
 		}
 		
 		return false;
@@ -98,8 +100,12 @@ public class TpaCommand implements CommandExecutor, TabExecutor {
 		List<String> result = new ArrayList<>();
 
 		if (args.length == 1) {
-			result.add("ablehnen");
-			result.add("annehmen");
+			String[] completions = new String[] {"annehmen", "ablehnen"};
+			for(String s : completions) {
+				if(s.startsWith(args[0].toLowerCase())) {
+					result.add(s);
+				}
+			}
 		}
 		if (args.length == 2) {
 			// Spieler, die tpas gesendet haben, anzeigen
